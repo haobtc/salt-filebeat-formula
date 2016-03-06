@@ -280,9 +280,9 @@ output:
 
 
   ### Logstash as output
-  #logstash:
+  logstash:
     # The Logstash hosts
-    #hosts: ["localhost:5044"]
+    hosts: ["{{config.hosts}}"]
 
     # Number of workers per Logstash host.
     #worker: 1

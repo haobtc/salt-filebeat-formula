@@ -16,4 +16,5 @@ CentOS:
 {% endload %}
 
 {% load_yaml as rawmap %}
+hosts: localhost:5044
 {% endload %}
