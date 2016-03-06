@@ -1,1 +1,2 @@
 filebeat:
+    hosts: localhost:5044
