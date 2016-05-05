@@ -13,6 +13,11 @@ filebeat:
       # Make sure not file is defined twice as this can lead to unexpected behaviour.
       paths:
         - /var/log/*.log
+        - /var/log/messages
+        {%- if salt['grains.get']('os') == 'Debian' %}
+        - /var/log/syslog
+        - /var/log/debug
+        {% endif %}
         #- c:\programdata\elasticsearch\logs\*
 
       # Configure the file encoding for reading files with international characters
