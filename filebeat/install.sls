@@ -11,10 +11,16 @@ apt_https_transport:
 filebeat_repo:
     pkgrepo.managed:
         - humanname: Filebeat Repository
+        {% if salt['grains.get']('os') == 'CentOS' %}
+        - baseurl: {{lookup.repo_url}}
+        - gpgkey: {{lookup.gpg_url}}
+        {% else %}
         - name: {{lookup.repo_url}}
         - dist: stable
-        - file: {{lookup.repo_file}}
         - key_url: {{lookup.gpg_url}}
+        {% endif %}
+        - file: {{lookup.repo_file}}
+        - gpgcheck: 1
         - refresh_db: True
         {% if salt['grains.get']('os_family') == 'Debian' %}
         - require:
