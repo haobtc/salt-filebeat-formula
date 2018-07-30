@@ -5,7 +5,15 @@
 filebeat_config:
     file.managed:
         - name: {{lookup.config_file}}
-        - source: salt://filebeat/files/filebeat.yml.j2
+        - source: salt://filebeat/files/filebeat.yml.jinja
+        - template: jinja
+        - context:
+            config: {{rawmap}}
+
+filebeat_nginx_module_config:
+    file.managed:
+        - name: {{lookup.nginx_config_file}}
+        - source: salt://filebeat/files/nginx.yml.jinja
         - template: jinja
         - context:
             config: {{rawmap}}

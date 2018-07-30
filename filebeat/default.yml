@@ -1,11 +1,12 @@
 {% load_yaml as lookup %}
-Debian:
+Ubuntu:
     repo_url: "deb https://artifacts.elastic.co/packages/6.x/apt stable main"
     repo_file: /etc/apt/sources.list.d/beats.list
     gpg_url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
     package: filebeat
     service: filebeat
     config_file: /etc/filebeat/filebeat.yml
+    nginx_config_file: /etc/filebeat/modules.d/nginx.yml
 CentOS:
     repo_url: "https://artifacts.elastic.co/packages/6.x/yum"
     repo_file: /etc/yum.repos.d/beats.repo

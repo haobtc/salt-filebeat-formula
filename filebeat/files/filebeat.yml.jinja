@@ -12,7 +12,7 @@
 
 #=========================== Filebeat prospectors =============================
 
-filebeat.prospectors:
+filebeat.inputs:
 
 # Each - is a prospector. Most options can be set at the prospector level, so
 # you can use different prospectors for various configurations.
@@ -21,7 +21,7 @@ filebeat.prospectors:
 - type: log
 
   # Change to true to enable this prospector configuration.
-  enabled: true
+  enabled: false
 
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
